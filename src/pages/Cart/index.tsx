@@ -3,29 +3,12 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import { View } from 'react-native';
 
-import {
-  Container,
-  ProductContainer,
-  ProductList,
-  Product,
-  ProductImage,
-  ProductTitleContainer,
-  ProductTitle,
-  ProductPriceContainer,
-  ProductSinglePrice,
-  TotalContainer,
-  ProductPrice,
-  ProductQuantity,
-  ActionContainer,
-  ActionButton,
-  TotalProductsContainer,
-  TotalProductsText,
-  SubtotalValue,
-} from './styles';
-
 import { useCart } from '~/hooks/cart';
 
 import formatValue from '~/utils/formatValue';
+import theme from '~/styles/theme';
+
+import * as S from './styles';
 
 interface Product {
   id: string;
@@ -59,9 +42,9 @@ const Cart: React.FC = () => {
   }, [products]);
 
   return (
-    <Container>
-      <ProductContainer>
-        <ProductList
+    <S.Container>
+      <S.ProductContainer>
+        <S.ProductList
           data={products}
           keyExtractor={item => item.id}
           ListFooterComponent={<View />}
@@ -69,48 +52,60 @@ const Cart: React.FC = () => {
             height: 80,
           }}
           renderItem={({ item }: { item: Product }) => (
-            <Product>
-              <ProductImage source={{ uri: item.image_url }} />
-              <ProductTitleContainer>
-                <ProductTitle>{item.title}</ProductTitle>
-                <ProductPriceContainer>
-                  <ProductSinglePrice>
+            <S.Product>
+              <S.ProductImage source={{ uri: item.image_url }} />
+              <S.ProductTitleContainer>
+                <S.ProductTitle>{item.title}</S.ProductTitle>
+                <S.ProductPriceContainer>
+                  <S.ProductSinglePrice>
                     {formatValue(item.price)}
-                  </ProductSinglePrice>
+                  </S.ProductSinglePrice>
 
-                  <TotalContainer>
-                    <ProductQuantity>{`${item.quantity}x`}</ProductQuantity>
+                  <S.TotalContainer>
+                    <S.ProductQuantity>{`${item.quantity}x`}</S.ProductQuantity>
 
-                    <ProductPrice>
+                    <S.ProductPrice>
                       {formatValue(item.price * item.quantity)}
-                    </ProductPrice>
-                  </TotalContainer>
-                </ProductPriceContainer>
-              </ProductTitleContainer>
-              <ActionContainer>
-                <ActionButton
+                    </S.ProductPrice>
+                  </S.TotalContainer>
+                </S.ProductPriceContainer>
+              </S.ProductTitleContainer>
+              <S.ActionContainer>
+                <S.ActionButton
                   testID={`increment-${item.id}`}
                   onPress={() => handleIncrement(item.id)}
                 >
-                  <FeatherIcon name="plus" color="#E83F5B" size={16} />
-                </ActionButton>
-                <ActionButton
+                  <FeatherIcon
+                    name="plus"
+                    color={theme.colors.primary}
+                    size={16}
+                  />
+                </S.ActionButton>
+                <S.ActionButton
                   testID={`decrement-${item.id}`}
                   onPress={() => handleDecrement(item.id)}
                 >
-                  <FeatherIcon name="minus" color="#E83F5B" size={16} />
-                </ActionButton>
-              </ActionContainer>
-            </Product>
+                  <FeatherIcon
+                    name="minus"
+                    color={theme.colors.primary}
+                    size={16}
+                  />
+                </S.ActionButton>
+              </S.ActionContainer>
+            </S.Product>
           )}
         />
-      </ProductContainer>
-      <TotalProductsContainer>
-        <FeatherIcon name="shopping-cart" color="#fff" size={24} />
-        <TotalProductsText>{`${totalItensInCart} itens`}</TotalProductsText>
-        <SubtotalValue>{cartTotal}</SubtotalValue>
-      </TotalProductsContainer>
-    </Container>
+      </S.ProductContainer>
+      <S.TotalProductsContainer>
+        <FeatherIcon
+          name="shopping-cart"
+          color={theme.colors.white}
+          size={24}
+        />
+        <S.TotalProductsText>{`${totalItensInCart} itens`}</S.TotalProductsText>
+        <S.SubtotalValue>{cartTotal}</S.SubtotalValue>
+      </S.TotalProductsContainer>
+    </S.Container>
   );
 };
 

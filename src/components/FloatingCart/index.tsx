@@ -3,17 +3,13 @@ import React, { useState, useMemo } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import {
-  Container,
-  CartPricing,
-  CartButton,
-  CartButtonText,
-  CartTotalPrice,
-} from './styles';
 
 import formatValue from '~/utils/formatValue';
 
 import { useCart } from '~/hooks/cart';
+import theme from '~/styles/theme';
+
+import * as S from './styles';
 
 // Calculo do total
 // Navegação no clique do TouchableHighlight
@@ -36,19 +32,23 @@ const FloatingCart: React.FC = () => {
   }, [products]);
 
   return (
-    <Container>
-      <CartButton
+    <S.Container>
+      <S.CartButton
         testID="navigate-to-cart-button"
         onPress={() => navigation.navigate('Cart')}
       >
-        <FeatherIcon name="shopping-cart" size={24} color="#fff" />
-        <CartButtonText>{`${totalItensInCart} itens`}</CartButtonText>
-      </CartButton>
+        <FeatherIcon
+          name="shopping-cart"
+          size={24}
+          color={theme.colors.white}
+        />
+        <S.CartButtonText>{`${totalItensInCart} itens`}</S.CartButtonText>
+      </S.CartButton>
 
-      <CartPricing>
-        <CartTotalPrice>{cartTotal}</CartTotalPrice>
-      </CartPricing>
-    </Container>
+      <S.CartPricing>
+        <S.CartTotalPrice>{cartTotal}</S.CartTotalPrice>
+      </S.CartPricing>
+    </S.Container>
   );
 };
 

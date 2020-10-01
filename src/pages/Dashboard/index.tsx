@@ -6,20 +6,11 @@ import { View, Image } from 'react-native';
 import formatValue from '~/utils/formatValue';
 import { useCart } from '~/hooks/cart';
 import api from '~/services/api';
+import theme from '~/styles/theme';
 
 import FloatingCart from '~/components/FloatingCart';
 
-import {
-  Container,
-  ProductContainer,
-  ProductImage,
-  ProductList,
-  Product,
-  ProductTitle,
-  PriceContainer,
-  ProductPrice,
-  ProductButton,
-} from './styles';
+import * as S from './styles';
 
 interface Product {
   id: string;
@@ -46,9 +37,9 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <Container>
-      <ProductContainer>
-        <ProductList
+    <S.Container>
+      <S.ProductContainer>
+        <S.ProductList
           data={products}
           keyExtractor={item => item.id}
           ListFooterComponent={<View />}
@@ -56,24 +47,28 @@ const Dashboard: React.FC = () => {
             height: 80,
           }}
           renderItem={({ item }) => (
-            <Product>
-              <ProductImage source={{ uri: item.image_url }} />
-              <ProductTitle>{item.title}</ProductTitle>
-              <PriceContainer>
-                <ProductPrice>{formatValue(item.price)}</ProductPrice>
-                <ProductButton
+            <S.Product>
+              <S.ProductImage source={{ uri: item.image_url }} />
+              <S.ProductTitle>{item.title}</S.ProductTitle>
+              <S.PriceContainer>
+                <S.ProductPrice>{formatValue(item.price)}</S.ProductPrice>
+                <S.ProductButton
                   testID={`add-to-cart-${item.id}`}
                   onPress={() => handleAddToCart(item)}
                 >
-                  <FeatherIcon size={20} name="plus" color="#C4C4C4" />
-                </ProductButton>
-              </PriceContainer>
-            </Product>
+                  <FeatherIcon
+                    size={20}
+                    name="plus"
+                    color={theme.colors.gray}
+                  />
+                </S.ProductButton>
+              </S.PriceContainer>
+            </S.Product>
           )}
         />
-      </ProductContainer>
+      </S.ProductContainer>
       <FloatingCart />
-    </Container>
+    </S.Container>
   );
 };
 

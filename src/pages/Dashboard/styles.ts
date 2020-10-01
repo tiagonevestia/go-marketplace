@@ -1,12 +1,5 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { FlatList } from 'react-native';
-
-interface Product {
-  id: string;
-  title: string;
-  image_url: string;
-  price: number;
-}
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -20,6 +13,13 @@ export const ProductContainer = styled.View`
   flex-direction: row;
 `;
 
+interface Product {
+  id: string;
+  title: string;
+  image_url: string;
+  price: number;
+}
+
 export const ProductList = styled(
   FlatList as new () => FlatList<Product>,
 ).attrs({
@@ -30,11 +30,13 @@ export const ProductList = styled(
 `;
 
 export const Product = styled.View`
-  background: #fff;
-  padding: 16px 16px;
-  border-radius: 5px;
-  margin: 8px;
-  flex: 1;
+  ${({ theme }) => css`
+    background: ${theme.colors.white};
+    padding: 16px 16px;
+    border-radius: 5px;
+    margin: 8px;
+    flex: 1;
+  `}
 `;
 
 export const ProductImage = styled.Image`
@@ -57,9 +59,11 @@ export const PriceContainer = styled.View`
 `;
 
 export const ProductPrice = styled.Text`
-  font-weight: bold;
-  font-size: 16px;
-  color: #e83f5b;
+  ${({ theme }) => css`
+    font-weight: bold;
+    font-size: 16px;
+    color: ${theme.colors.primary};
+  `}
 `;
 
 export const ProductButton = styled.TouchableOpacity``;

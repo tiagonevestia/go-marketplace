@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { FlatList } from 'react-native';
 
 export const Container = styled.SafeAreaView`
@@ -19,11 +19,13 @@ export const ProductList = styled(FlatList)`
 `;
 
 export const Product = styled.View`
-  background: #fff;
-  padding: 15px 10px;
-  border-radius: 5px;
-  margin: 5px;
-  flex-direction: row;
+  ${({ theme }) => css`
+    background: ${theme.colors.white};
+    padding: 15px 10px;
+    border-radius: 5px;
+    margin: 5px;
+    flex-direction: row;
+  `}
 `;
 
 export const ProductImage = styled.Image`
@@ -50,26 +52,32 @@ export const TotalContainer = styled.View`
 `;
 
 export const ProductSinglePrice = styled.Text`
-  font-size: 12px;
-  color: #a0a0b3;
-  margin-top: 8px;
+  ${({ theme }) => css`
+    font-size: 12px;
+    color: ${theme.colors.secondary};
+    margin-top: 8px;
+  `}
 `;
 
 export const ProductPrice = styled.Text`
-  font-weight: bold;
-  margin-top: 5px;
+  ${({ theme }) => css`
+    font-weight: bold;
+    margin-top: 5px;
 
-  font-size: 16px;
-  color: #e83f5b;
+    font-size: 16px;
+    color: ${theme.colors.primary};
+  `}
 `;
 
 export const ProductQuantity = styled.Text`
-  font-weight: bold;
-  margin-top: 5px;
-  margin-right: 10px;
+  ${({ theme }) => css`
+    font-weight: bold;
+    margin-top: 5px;
+    margin-right: 10px;
 
-  font-size: 16px;
-  color: #e83f5b;
+    font-size: 16px;
+    color: ${theme.colors.primary};
+  `}
 `;
 
 export const ActionContainer = styled.View`
@@ -81,35 +89,43 @@ export const ActionContainer = styled.View`
 `;
 
 export const ActionButton = styled.TouchableOpacity`
-  background: rgba(232, 63, 91, 0.1);
-  border-radius: 5px;
-  padding: 12px;
-  margin-bottom: 5px;
+  ${({ theme }) => css`
+    background: ${theme.colors.rgbaPrimary};
+    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 5px;
+  `}
 `;
 
 export const TotalProductsContainer = styled.View`
-  position: absolute;
-  bottom: 0px;
+  ${({ theme }) => css`
+    position: absolute;
+    bottom: 0px;
 
-  flex-direction: row;
-  background: #e83f5b;
+    flex-direction: row;
+    background: ${theme.colors.primary};
 
-  padding: 20px 40px;
-  justify-content: space-between;
-  align-items: center;
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+  `}
 `;
 
 export const TotalProductsText = styled.Text`
-  font-size: 16px;
-  color: #fff;
-  margin-left: 15px;
+  ${({ theme }) => css`
+    font-size: 16px;
+    color: ${theme.colors.white};
+    margin-left: 15px;
 
-  flex: 1;
-  font-weight: bold;
+    flex: 1;
+    font-weight: bold;
+  `}
 `;
 
 export const SubtotalValue = styled.Text`
-  font-size: 16px;
-  color: #fff;
-  font-weight: bold;
+  ${({ theme }) => css`
+    font-size: 16px;
+    color: ${theme.colors.white};
+    font-weight: bold;
+  `}
 `;

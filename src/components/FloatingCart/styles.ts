@@ -1,15 +1,17 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
-  position: absolute;
-  bottom: 0px;
+  ${({ theme }) => css`
+    position: absolute;
+    bottom: 0px;
 
-  flex-direction: row;
-  background: #e83f5b;
+    flex-direction: row;
+    background: ${theme.colors.primary};
 
-  padding: 0 20px;
-  justify-content: space-between;
-  align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+  `}
 `;
 
 export const CartPricing = styled.Text`
@@ -17,25 +19,31 @@ export const CartPricing = styled.Text`
 `;
 
 export const CartTotalPrice = styled.Text`
-  font-size: 16px;
-  color: #fff;
-  font-weight: bold;
+  ${({ theme }) => css`
+    font-size: 16px;
+    color: ${theme.colors.white};
+    font-weight: bold;
+  `}
 `;
 
 export const CartButton = styled.TouchableOpacity`
-  flex-direction: row;
-  background: #e83f5b;
+  ${({ theme }) => css`
+    flex-direction: row;
+    background: ${theme.colors.primary}
 
-  flex: 1;
-  padding: 20px 20px;
-  justify-content: space-between;
-  align-items: center;
+    flex: 1;
+    padding: 20px 20px;
+    justify-content: space-between;
+    align-items: center;
+  `}
 `;
 
 export const CartButtonText = styled.Text`
-  font-weight: bold;
-  color: #fff;
-  margin-left: 15px;
-  flex: 1;
-  margin-right: auto;
+  ${({ theme }) => css`
+    font-weight: bold;
+    color: ${theme.colors.white};
+    margin-left: 15px;
+    flex: 1;
+    margin-right: auto;
+  `}
 `;

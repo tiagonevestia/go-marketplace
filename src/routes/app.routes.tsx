@@ -9,6 +9,7 @@ import Dashboard from '~/pages/Dashboard';
 import Cart from '~/pages/Cart';
 
 import Logo from '~/assets/logo.png';
+import theme from '~/styles/theme';
 
 const App = createStackNavigator();
 
@@ -16,7 +17,7 @@ const AppRoutes: React.FC = () => (
   <App.Navigator
     screenOptions={{
       headerShown: true,
-      cardStyle: { backgroundColor: '#EBEEF8' },
+      cardStyle: { backgroundColor: theme.colors.lightGray },
     }}
     initialRouteName="Dashboard"
   >
