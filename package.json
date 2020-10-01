@@ -9,6 +9,7 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "app:server": "dotenv -- cross-var yarn json-server server.json -H %URL_API% -p %PORT_API%  -w",
+    "android:tools": "adb shell input keyevent 82",
     "postinstall": "npx typesync"
   },
   "dependencies": {
