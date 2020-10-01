@@ -29,8 +29,8 @@ jest.mock('../../utils/formatValue.ts', () => ({
   default: jest.fn().mockImplementation(value => value),
 }));
 
-import FloatingCart from '../../components/FloatingCart';
-import { useCart } from '../../hooks/cart';
+import FloatingCart from '~/components/FloatingCart';
+import { useCart } from '~/hooks/cart';
 
 const useCartMocked = mocked(useCart);
 

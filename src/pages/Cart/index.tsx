@@ -23,9 +23,9 @@ import {
   SubtotalValue,
 } from './styles';
 
-import { useCart } from '../../hooks/cart';
+import { useCart } from '~/hooks/cart';
 
-import formatValue from '../../utils/formatValue';
+import formatValue from '~/utils/formatValue';
 
 interface Product {
   id: string;

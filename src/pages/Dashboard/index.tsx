@@ -3,11 +3,11 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import { View, Image } from 'react-native';
 
-import formatValue from '../../utils/formatValue';
-import { useCart } from '../../hooks/cart';
-import api from '../../services/api';
+import formatValue from '~/utils/formatValue';
+import { useCart } from '~/hooks/cart';
+import api from '~/services/api';
 
-import FloatingCart from '../../components/FloatingCart';
+import FloatingCart from '~/components/FloatingCart';
 
 import {
   Container,

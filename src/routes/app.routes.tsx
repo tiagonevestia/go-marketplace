@@ -5,10 +5,10 @@ import { Image } from 'react-native';
 
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
-import Dashboard from '../pages/Dashboard';
-import Cart from '../pages/Cart';
+import Dashboard from '~/pages/Dashboard';
+import Cart from '~/pages/Cart';
 
-import Logo from '../assets/logo.png';
+import Logo from '~/assets/logo.png';
 
 const App = createStackNavigator();
 

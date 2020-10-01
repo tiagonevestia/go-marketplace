@@ -11,9 +11,9 @@ import {
   CartTotalPrice,
 } from './styles';
 
-import formatValue from '../../utils/formatValue';
+import formatValue from '~/utils/formatValue';
 
-import { useCart } from '../../hooks/cart';
+import { useCart } from '~/hooks/cart';
 
 // Calculo do total
 // Navegação no clique do TouchableHighlight
