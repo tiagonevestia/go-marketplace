@@ -1,7 +1,7 @@
 # Específicação dos testes
 
 > ## Caso de sucesso
-1. Listar os produtos da fake API:
+1. ✔️ Listar os produtos da fake API:
   > Sua página Dashboard deve ser capaz de exibir uma listagem através de uma tabela, com os campos title, image_url e price.
 2. Adicionar itens ao carrinho:
   > Em toda sua aplicação, você deve utilizar o Contexto chamado cart que deixamos disponível. Você vai precisar completar as funcionalidades dentro de hooks/cart.tsx para que você consiga adicionar itens ao carrinho.
